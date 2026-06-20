@@ -59,4 +59,4 @@ RUN printf "<Directory ${APACHE_DOCUMENT_ROOT}>\n\
     && a2enconf laravel
 
 EXPOSE 80
-CMD rm -rf public/storage && npm run build && php artisan storage:link && php artisan migrate --force && php artisan db:seed --force && apache2-foreground
+CMD rm -rf public/storage && npm run build && php artisan storage:link && php artisan config:cache && php artisan migrate --force && php artisan db:seed --force && apache2-foreground
