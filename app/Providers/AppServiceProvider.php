@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if ($this->app->environment('production') || env('APP_ENV') === 'production' || true) {
+            config(['app.url' => 'https://genderlab01.onrender.com']);
+            config(['app.asset_url' => 'https://genderlab01.onrender.com']);
             URL::forceScheme('https');
             URL::forceRootUrl('https://genderlab01.onrender.com');
         }
