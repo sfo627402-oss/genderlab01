@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@layer utilities {
+    .hero-bg {
+        background: linear-gradient(135deg, #021025 0%, #0a3f7a 35%, #0084ff 100%);
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #4de12f 0%, #0084ff 45%, #22d3ee 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-divider {
+        background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), transparent);
+        height: 1px;
+        width: 100%;
+    }
+
+    .text-glow {
+        text-shadow: 0 0 24px rgba(34, 211, 238, 0.25);
+    }
+
+    .btn-premium {
+        background: linear-gradient(135deg, #4de12f 0%, #0084ff 55%, #22d3ee 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-premium::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        transform: rotate(45deg);
+        transition: 0.5s;
+    }
+
+    .btn-premium:hover::after {
+        left: 100%;
+    }
+
+    .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+        border-color: rgba(34, 197, 94, 0.24);
+    }
+
+    .navbar-scrolled {
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(8px) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .dna-container {
+        position: absolute;
+        width: 100px;
+        height: 500px;
+        opacity: 0.12;
+        z-index: 0;
+        right: 15%;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        pointer-events: none;
+    }
+
+    .dna-step {
+        width: 60px;
+        height: 4px;
+        background: #4de12f;
+        border-radius: 9999px;
+        position: relative;
+        animation: dna-rotate 4s infinite linear;
+    }
+
+    .dna-step::before,
+    .dna-step::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        background: #22d3ee;
+        top: -3px;
+    }
+
+    .dna-step::after {
+        right: -5px;
+        background: #0084ff;
+    }
+
+    .float-animation {
+        animation: float 5s ease-in-out infinite;
+    }
+}
+
+@keyframes dna-rotate {
+    0% {
+        transform: scaleX(1) rotate(0deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+    50% {
+        transform: scaleX(-1) rotate(180deg);
+        opacity: 0.3;
+        filter: blur(1px);
+    }
+    100% {
+        transform: scaleX(1) rotate(360deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-14px);
+    }
+}
